@@ -3,16 +3,15 @@ Proposta de Arquitetura Limpa para o Dart/Flutter
 
 # Início
 
-Podemos dizer que uma arquitetura limpa pode definir o futuro do seu projeto e por isso deve ser objeto de estudo constante para que também levemos em consideração onde e como deve ser aplicado uma estrutura consideravelmente limpa baseando-se nas camadas da Arquitetura Limpa proposta por Robert C. Martin no livro “Arquitetura Limpa: o Guia do Artesão Para Estrutura e Design de Software”.
+Podemos dizer que uma arquitetura limpa pode definir o futuro do seu projeto e por isso deve ser objeto de estudo constante para que também levemos em consideração onde e como deve ser aplicado uma estrutura consideravelmente limpa baseando-se nas camadas da Arquitetura Limpa proposta por Robert C. Martin no livro **“Arquitetura Limpa: o Guia do Artesão Para Estrutura e Design de Software”**.
 
 # Camadas de uma Arquitetura Limpa.
 
-Robert C. Martin conclui que uma arquitetura deve conter pelo menos 4 camadas principais, independentes para ser considerada “limpa”, são elas: 
-Regras de Negócio Corporativas
-Regras de Negócio da Aplicação
-Adaptadores de Interface
-Frameworks & Drivers (Externos)
-
+**Robert C. Martin** conclui que uma arquitetura deve conter pelo menos 4 camadas principais, independentes para ser considerada “limpa”, são elas: 
+1. Regras de Negócio Corporativas
+2. Regras de Negócio da Aplicação
+3. Adaptadores de Interface
+4. Frameworks & Drivers (Externos)
 
 
 ## Regras de Negócio Corporativas
@@ -35,41 +34,13 @@ Essa camada é muito suscetível a modificações, porém com uma arquitetura li
 
 Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutterando, a “Clean Dart”.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Clean Dart
 
+![Image 1](imgs/img1.png)
 
 Usando o Flutter como exemplo teremos então quatro camadas mantendo a “Arquitetura de Plugin”, com foco principal no Domínio da Aplicação, camada esta que hospeda as 2 Regras de Negócio principais, Entidades e Casos de Uso.
+
+![Image 1](imgs/img2.png)
 
 A proposta de Arquitetura se propõe a desacoplar as camadas mais externas e preservar a Regra de Negócio.
 
