@@ -20,16 +20,16 @@ Para essa proposta nos basearemos nas camadas da Arquitetura Limpa proposta por 
 
 ## Regras de Negócio Corporativas
 
-São as regras de negócio cruciais para a sua aplicação, são representadas por modelos de dados denominado "Entidades", essa camada tem as regras mais sensíveis de um sistema, por isso ela está no topo das camadas. Uma "Entidade" deve ser pura, ou seja, não deve conhecer nenhuma outra camada, porém é conhecida pelas outras camadas.
+São as regras de negócio cruciais para a sua aplicação, são representadas por modelos de dados denominado **"Entidades"**, essa camada tem as regras mais sensíveis de um sistema, por isso ela está no topo das camadas. Uma "Entidade" deve ser pura, ou seja, não deve conhecer nenhuma outra camada, porém é conhecida pelas outras camadas.
 
 
 ## Regras de Negócio da Aplicação
 
-São as regras que só o computador pode executar, aqui temos uma representação de comandos chamados de "Casos de Uso", e basicamente representam as ações que um usuário pode fazer na aplicação. 
+São as regras que só o computador pode executar, aqui temos uma representação de comandos chamados de **"Casos de Uso"**, e basicamente representam as ações que um usuário pode fazer na aplicação. 
 
-Um "Caso de Uso" conhece apenas as Entidades, porém não sabe nada sobre as implementações das camadas de mais baixo nível. 
+Um **"Caso de Uso"** conhece apenas as Entidades, porém não sabe nada sobre as implementações das camadas de mais baixo nível. 
 
-Se um "Caso de Uso" precisar acessar uma camada superior, deverá fazê-lo por meio de contratos definidos por uma interface, seguindo o “Princípio de Inversão de Dependências” do [SOLID](https://www.youtube.com/watch?v=mkx0CdWiPRA).
+Se um **"Caso de Uso"** precisar acessar uma camada superior, deverá fazê-lo por meio de contratos definidos por uma interface, seguindo o **“Princípio de Inversão de Dependências”** do [SOLID](https://www.youtube.com/watch?v=mkx0CdWiPRA).
 
 
 ## Adaptadores de Interface
@@ -39,20 +39,20 @@ Essa camada é responsável por “dar suporte” para as camadas mais altas (Re
 
 ## Frameworks & Drivers
 
-Todas as abstrações feitas pelas camadas mais altas foram para que você facilmente plugue artefatos externos como uma BASE DE DADOS ou uma INTERFACE DE USUÁRIO.
+Todas as abstrações feitas pelas camadas mais altas foram para aumentar a facilidade do plugin&play dos artefatos externos como uma BASE DE DADOS ou uma INTERFACE DE USUÁRIO(UI).
 
-Essa camada normalmente sofre muitas modificações, porém com uma arquitetura limpa aplicada isso pode ser completamente indolor. 
+Essa camada normalmente sofre muitas modificações, porém com uma arquitetura limpa aplicada isso pode ser completamente indolor e segura para a sua regra de negócio.
 
-Você poderá trocar uma API REST por outra em GraphQl sem afetar suas regras de negócio. Você poderá trocar sua interface gráfica completamente ou até mesmo trocar do Flutter para o AngularDart que as Regras de Negócio ainda assim ficarão funcionais!
+Podemos então trocar uma API REST por outra em GraphQl sem afetar suas regras de negócio. Poderemos também trocar a interface gráfica completamente ou até mesmo trocar o Flutter pelo AngularDart e mesmo assim as Regras de Negócio ficarão funcionais!
 
-Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutterando, a “Clean Dart”.
+Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutterando, a **“Clean Dart”**.
 
 
 # Clean Dart
 
 ![Image 1](imgs/img1.png)
 
-Usando o Flutter como exemplo teremos então quatro camadas mantendo a “Arquitetura de Plugin”, com foco principal no Domínio da Aplicação, camada esta que hospeda as 2 Regras de Negócio principais, Entidades e Casos de Uso.
+Usando o Flutter como exemplo teremos então quatro camadas mantendo a “Arquitetura de Plugin”, com foco principal no Domínio da Aplicação, camada esta que hospeda as 2 Regras de Negócio principais, estamos falando das **Entidades** e dos **Casos de Uso**.
 
 ![Image 1](imgs/img2.png)
 
@@ -61,51 +61,61 @@ A proposta de Arquitetura se propõe a desacoplar as camadas mais externas e pre
 
 ## Presenter
 
-A Camada de Presenter fica responsável por declarar as entradas, saídas e interações da aplicação. 
+A Camada **Presenter** fica responsável por declarar as entradas, saídas e interações da aplicação. 
 
 Usando o Flutter como exemplo, hospedaremos os Widgets, Pages e também Alguma Gerência de Estado, já no backend como exemplo, seria nesta camada onde colocaríamos os Handlers ou Commands da nossa API.
 
 
 ## Domain
 
-A camada de Domain hospedará as Regras de Negócio Corporativa(Entity) e da Aplicação(Usecase).
+A camada de **Domain** hospedará as Regras de Negócio Corporativa(Entity) e da Aplicação(Usecase).
 
-Nossas Entidades devem ser Objetos simples podendo conter regras de validação dos seus dados por meio de funções ou ValueObjects. A Entidade não pode usar nenhum Objeto das outras camadas.
+Nossas Entidades devem ser Objetos simples podendo conter regras de validação dos seus dados por meio de funções ou ValueObjects. **A Entidade não deve usar nenhum Objeto das outras camadas.**
 
-Os Casos de Uso devem executar a lógica necessária para resolver o problema. Se o Caso de Uso precisar de algum acesso externo deve ser feito por meio de contratos de interface.
+Os **Casos de Uso** devem executar a lógica necessária para resolver o problema. Se o **Caso de Uso** precisar de algum acesso externo então esse acesso deve ser feito por meio de contratos de interface que serão implementados em uma camada de mais baixo nível.
 
-Na camada Domain a única coisa que dever ser responsável apenas pela execução da lógica de negócio, não deve haver implementações de outros Objetos como Repositories ou Services dentro do Domain. 
+Na camada **Domain** dever ser responsável apenas pela execução da lógica de negócio, não deve haver implementações de outros Objetos como Repositories ou Services dentro do **Domain**. 
 
-Já em Repository como exemplo, teremos que ter apenas o contrato de interfaces e a responsabilidade de implementação desse objeto deverá ser repassado a outra camada mais baixa.
+Tomando um Repository como exemplo, teremos que ter apenas o contrato de interfaces(Abstrações) e a responsabilidade de implementação desse objeto deverá ser repassado a outra camada mais baixa.
 
 
 ## Infrastructure(Infra)
 
-Está camada dá suporte a camada Domain implementando suas interfaces. Para isso, essa camada se propõem a adaptar os dados externos para que possa cumprir os contratos do domínio.
+Está camada dá suporte a camada **Domain** implementando suas interfaces. Para isso, essa camada se propõem a adaptar os dados externos para que possa cumprir os contratos do domínio.
 
-Muito provavelmente nessa camada iremos implementar alguma interface de Repository ou Services que pode ou não depender de dados externos como uma API ou acesso a algum Hardware como por exemplo Bluetooth. 
+Muito provavelmente nessa camada iremos implementar alguma interface de um Repository ou Services que pode ou não depender de dados externos como uma API ou acesso a algum Hardware como por exemplo Bluetooth. 
 
 Para que o Repository possa processar e adaptar os dados externos devemos criar contratos para esses serviços visando passar a responsabilidade de implementação para a camada mais baixa da nossa arquitetura.
 
-Como sugestão, iremos criar objetos de DataSource quando quisermos acessar um dado externo, uma BaaS como Firebase ou um Cache Local usando SQLite por exemplo.
-Outra sugestão seria criar objetos denominados Drivers para interfacear a comunicação com algum Hardware do dispositivo.
+Como sugestão, iremos criar objetos de **DataSource** quando quisermos acessar um dado externo, uma BaaS como Firebase ou um Cache Local usando SQLite por exemplo.
+Outra sugestão seria criar objetos denominados **Drivers** para interfacear a comunicação com algum Hardware do dispositivo.
 
 Os acessos externos como Datasources e Drivers devem ser implementados por outra camada, ficando apenas os Contratos de Interface nesta camada de Infra.
 
 
 ## External
 
-Aqui começaremos a implementar os acessos externos e que dependem de um serviço, package ou acesso muito específico.
+Aqui começaremos a implementar os acessos externos e que dependem de um hardware, package ou acesso muito específico.
 
-Basicamente a camada External deve conter tudo aquilo que terá grandes chances de ser alterado sem que você possa intervir.
+Basicamente a camada External deve conter tudo aquilo que terá grandes chances de ser alterado sem que o programador possa intervir diretamente no projeto.
 
-No Flutter por exemplo, para cache local usamos o SharedPreferences, mas talvez em alguma estágio do projeto a implementação do SharedPreferences não seja mais suficiente para a aplicação e deve ser substituída por outro package como Hive, nesse ponto a única coisa que precisamos fazer é criar uma nova classe, implementando o Contrato esperado pela camada mais alta (que seria a Infra) e implementarmos a Lógica usando o Hive.
+No Flutter por exemplo, para cache local usamos o SharedPreferences, mas talvez em alguma estágio do projeto a implementação do SharedPreferences não seja mais suficiente para a aplicação e deve ser substituída por outro package como Hive, nesse ponto a única coisa que precisamos fazer é criar uma nova classe, implementando o Contrato esperado pela camada mais alta (que seria a **Infra**) e implementarmos a Lógica usando o Hive.
 
 Um outro exemplo prático seria pensar em um Login com Firebase Auth, porém outro produto deseja utilizar um outro provider de autenticação. Bastaria apenas implementar um datasource baseado no outro provider e “Inverter a Dependência” substituindo a implementação do Firebase pela nova quando for necessário.
 
 Os Datasources devem se preocupar apenas em “descobrir” os dados externos e enviar para a camada de Infra para serem tratados.
 
-Da mesma forma os objetos Drivers devem apenas retornar as informações solicitadas sobre o Hardware do Device e não devem fazer tratamento fora ao que lhe foi solicitado no contrato.
+Da mesma forma os objetos **Drivers** devem apenas retornar as informações solicitadas sobre o Hardware do Device e não devem fazer tratamento fora ao que lhe foi solicitado no contrato.
+
+# Assine!
+
+Apreciariamos o seu Feedback!
+Se concorda com a Proposta de Arquitetura Limpa "Clean Dart" faça isso deixando uma **Star** desse repositório. Deixando uma **Star** é o mesmo que assinar um "manifesto limpo".
+
+Estamos abertos a sugestões e melhorias na documentação!
+Faça isso por meio das [issues](https://github.com/Flutterando/Clean-Dart/issues), nossa equipe ficará muito contente com seu interesse de melhorar essa ferramenta para a comunidade.
+
+Sinta-se a vontade para abrir um **PR** com correções na documentação dessa proposta.
 
 # Exemplos
 
