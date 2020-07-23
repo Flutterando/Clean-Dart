@@ -106,3 +106,16 @@ Um outro exemplo prático seria pensar em um Login com Firebase Auth, porém out
 Os Datasources devem se preocupar apenas em “descobrir” os dados externos e enviar para a camada de Infra para serem tratados.
 
 Da mesma forma os objetos Drivers devem apenas retornar as informações solicitadas sobre o Hardware do Device e não devem fazer tratamento fora ao que lhe foi solicitado no contrato.
+
+# Exemplos
+
+- [Clean Dart Login with Firebase](https://github.com/jacobaraujo7/login-firebase-clean-dart)
+
+# Links úteis
+
+- [Resumo do livro "Arquitetura Limpa"](https://medium.com/@deividchari/desvendando-a-arquitetura-limpa-de-uncle-bob-3e60d9aa9cce)
+- [Sua Arquitetura está limpa?](https://medium.com/flutterando/sua-arquitetura-est%C3%A1-limpa-clean-architecture-no-flutter-458c68fad120)
+- [Os tijolos do Clean Architecture](https://www.youtube.com/watch?v=C8mpy3pwqQc)
+- [The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+- [Guilherme's Proposal](https://github.com/guilherme-v/flutter-clean-arch)
+- [Flutter TDD Clean Architecture Course](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
