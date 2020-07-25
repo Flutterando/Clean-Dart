@@ -107,6 +107,28 @@ Os Datasources devem se preocupar apenas em “descobrir” os dados externos e 
 
 Da mesma forma os objetos **Drivers** devem apenas retornar as informações solicitadas sobre o Hardware do Device e não devem fazer tratamento fora ao que lhe foi solicitado no contrato.
 
+# Dicas
+
+## Pense por camada
+
+Quando for desenvolver comece a pensar por camada, não devemos nos preocupar com o que tem na camada de **Presenter** ou **External** por exemplo. Se pensarmos nas camadas mais externas podemos acabar nos orientando (erroneamente) por essas camadas. Assim, devemos nos acostumar a desenvolver camada por camada, de dentro para fora e não ao contrário.
+
+Talvez no começo da sua jornada "Limpa" algumas camadas possam parecer "sem utilidade", isso acontece quando nossa mente ainda não está **Pensando em Camadas** (ou porque sua Regra de Negócio é simples demais para isso)
+
+## Teste de Unidade será sua nova UI
+
+É muito comum os desenvolvedores criarem primeiro as suas Views para pode "testar" as Regras de Negócio. Mas nós já temos uma ferramenta própria para isso e um lugar dedicado para armazenar esses testes.
+
+Desenvolver de forma "limpa" está em total sinergia com o **TDD**(Test Driven Development) pois a camada de **Presenter** será uma das últimas coisas que iremos pensar no desenvolvimento da nossa feature.
+
+## Gaste mais tempo tratando erros
+
+**"É melhor deixar uma Exception acontecer do que tratar um erro de forma genérica"...**
+Uma boa dica é usar alguma que nos obrigue a tratar os erros como o **Either** do pacote **dartz**.
+
+Either é uma classe que pode receber dois tipos de dados, um Left (para quando enviar o erro) e o Right(para enviar o dado esperado). Isso também diminui muito a necessidade de realizar um tratamento manual de erro com **try catch** em camadas mais superiores como **Presenter**.
+
+
 # Assine!
 
 Apreciariamos o seu Feedback!
