@@ -113,13 +113,14 @@ Apreciariamos o seu Feedback!
 Se concorda com a Proposta de Arquitetura Limpa "Clean Dart" faça isso deixando uma **Star** desse repositório. Deixando uma **Star** é o mesmo que assinar um "manifesto limpo".
 
 Estamos abertos a sugestões e melhorias na documentação!
-Faça isso por meio das [issues](https://github.com/Flutterando/Clean-Dart/issues), nossa equipe ficará muito contente com seu interesse de melhorar essa ferramenta para a comunidade.
+Faça isso por meio das [issues](https://github.com/Flutterando/Clean-Dart/issues), nossa equipe ficará muito contente com seu interesse em melhorar essa ferramenta para a comunidade.
 
 Sinta-se a vontade para abrir um **PR** com correções na documentação dessa proposta.
 
 # Exemplos
 
 - [Clean Dart Login with Firebase](https://github.com/jacobaraujo7/login-firebase-clean-dart)
+- [Clean Dart Github Login with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 
 # Links úteis
 
