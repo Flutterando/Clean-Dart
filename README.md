@@ -132,7 +132,7 @@ Either é uma classe que pode receber dois tipos de dados, um Left (para quando 
 # Assine!
 
 Apreciariamos o seu Feedback!
-Se concorda com a Proposta de Arquitetura Limpa "Clean Dart" faça isso deixando uma **Star** nesse repositório. Deixando uma **Star** é o mesmo que assinar um "manifesto limpo".
+Se concorda com a Proposta de Arquitetura Limpa "Clean Dart" faça isso deixando uma **Star** nesse repositório. Uma **Star** é o mesmo que assinar um "manifesto limpo" concordando com essa proposta.
 
 Estamos abertos a sugestões e melhorias na documentação!
 Faça isso por meio das [issues](https://github.com/Flutterando/Clean-Dart/issues), nossa equipe ficará muito contente com seu interesse em melhorar essa ferramenta para a comunidade.
