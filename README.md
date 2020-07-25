@@ -141,7 +141,7 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 
 # Exemplos
 
-- [Clean Dart Login with Firebase](https://github.com/jacobaraujo7/login-firebase-clean-dart)
+- [Clean Dart Login with Firebase, MobX and Modular](https://github.com/jacobaraujo7/login-firebase-clean-dart)
 - [Clean Dart Github Login with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 
 # Links úteis
