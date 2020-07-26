@@ -143,6 +143,7 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 
 - [Clean Dart Login with Firebase, MobX and Modular](https://github.com/jacobaraujo7/login-firebase-clean-dart)
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
+- [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
 
 # Links úteis
 
