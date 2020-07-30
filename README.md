@@ -126,10 +126,19 @@ Desenvolver de forma "limpa" está em total sinergia com o **TDD**(Test Driven D
 ## Gaste mais tempo tratando erros
 
 **"É melhor deixar uma Exception acontecer do que tratar um erro de forma genérica"...**
-Uma boa dica é usar alguma que nos obrigue a tratar os erros como o **Either** do pacote **dartz**.
+Uma boa dica é usar alguma classe que nos obrigue a tratar os erros como o **Either** do pacote **dartz**.
 
 Either é uma classe que pode receber dois tipos de dados, um Left (para quando enviar o erro) e o Right(para enviar o dado esperado). Isso também diminui muito a necessidade de realizar um tratamento manual de erro com **try catch** em camadas mais superiores como **Presenter**.
 
+## Não caia na tentação de furar uma camada
+
+Algumas vezes você poderá ter um **UseCase** muito simples, que apenas repassará para o **Repository**, como por exemplo em um CRUD onde você apenas precisa validar se a informação está chegando da maneira correta e repassar para o **Repository** fazer seu trabalho. 
+
+Parece estranho você ter uma classe com um método que faz somente a validação dos dados e repassa para outra classe, porem você verá a grande utilidade disso no momento de uma manutenção. Pois muitas vezes o **UseCase** pode nascer pequeno mas em um futuro próximo ele pode ganhar corpo. 
+
+Um exemplo disso é a utilização do Firebase, o package do Firebase te retornar uma Stream que você pode muito bem colocar ele direto na sua **View**, porem se um dia você quiser remover o firebase do seu projeto, você terá que reconstruir toda sua tela ou pior todo seu projeto.
+
+Sendo assim não caia na tentação de chamar o **Repository** direto do **Controller** ou mesmo plugar o Firebase direto na sua **View**, além de infringir as regras da arquitetura, você irá se arrepender em um futuro próximo.
 
 # Assine!
 
@@ -146,6 +155,7 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 - [Clean Dart Login with Firebase, MobX and Modular](https://github.com/jacobaraujo7/login-firebase-clean-dart)
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 - [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
+- [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
 
 # Links úteis
 
