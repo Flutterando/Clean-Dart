@@ -17,6 +17,8 @@ Para essa proposta nos basearemos nas camadas da Arquitetura Limpa proposta por 
 3. Adaptadores de Interface
 4. Frameworks & Drivers (Externos)
 
+![Image 3](imgs/img3.png)
+
 
 ## Regras de Negócio Corporativas
 
