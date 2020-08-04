@@ -3,14 +3,13 @@ Clean architecture proposal for Dart/Flutter.
 
 # Introduction
 
-A clean architecture can define the future of your project, so we must study it constantly to know where and how to apply it.
+The architecture of your project may define it's future. Being so, it's our role to study constantly to know how to design a proper, clean architecture, and where to apply it.
 
-For this proposal, we will be based on the Clean Architecture layers proposed by Robert C. Martin in the book **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”**.
-
+This proposal is based on Robert C. Martin's **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”** principles and it's layers struct approach.
 
 # Clean Architecture layers
 
-** Robert C. Martin** concludes that a clean architecture must have at least 4 principal and independent layers to be “clean”, they are:
+**Robert C. Martin** states that, to be considered "clean", an architecture must have at least 4 main and independent layers. They are:
 
 1. Enterprise Business Rules
 2. Application Business Rules
@@ -22,32 +21,32 @@ For this proposal, we will be based on the Clean Architecture layers proposed by
 
 ## Enterprise Business Rules
 
-It’s the most sensitive rules of a system, because of that is the highest layer and is represented by data models called **“Entities”**. 
+They are the most sensitive rules of a system and, thus, the highest-level layer. It is represented by data models called **entities**. 
 
-An **“Entity”** must be pure, which means that it cannot know any layer, only other layers know it.
+An **entity** must be pure. This means that it cannot have any knowledge about the layers below it. On the other hand, all other layers know about the **entities**.
 
 ## Application Business Rules
 
-It’s the rules that only the computer can execute, here we have the representation of the commands called **“Use cases”** that basically represents all of the actions that the user can perform in the application.
+They are the rules that are exclusive and specific to your application. They are expressed in commands called **use cases**, which, roughly speaking, represents any action the user can perform within your application.
 
-An **“Use case”** only knows the Entities and no more lower layers.
+An **use case** only knows the **enitites** layer, and know nothing about the lower layers.
 
-If an **“Use case”** needs to access a higher layer must use the **“Dependency Inversion Principle”** from SOLID.
-
+If an **use case** needs to access a higher layer, it should be done with the [**Dependency Inversion Principle**](https://en.wikipedia.org/wiki/Dependency_inversion_principle) in mind.
 
 ## Interface Adapters
 
-It’s responsible for helping the higher layers to convert the external data to a format that respects the interface contracts defined in the business rules.
+This layer is responsible for acting as a bridge between the higher layers and the external data. It helps the external data to communicate with the higher layers in a way that respects the interface contracts defined in the business rules.
 
 
 ## Frameworks & Drivers
 
-Todas as abstrações feitas pelas camadas mais altas foram para aumentar a facilidade do plugin&play dos artefatos externos como uma BASE DE DADOS ou uma INTERFACE DE USUÁRIO(UI).
+All the higher-level layers abstractions were designed specially top improve the decoupling between them and the external artifacts. This makes easier to switch them whenever you want, in a plug & play fashion.
 
-Essa camada normalmente sofre muitas modificações, porém com uma arquitetura limpa aplicada isso pode ser completamente indolor e segura para a sua regra de negócio.
+The frameworks & drivers layer is highly volatile, and is constantly changing. Within a clean architecture, however, these changes may be completely painless and safe, leaving your business rules untouched.
 
-Podemos então trocar uma API REST por outra em GraphQl sem afetar suas regras de negócio. Poderemos também trocar a interface gráfica completamente ou até mesmo trocar o Flutter pelo AngularDart e mesmo assim as Regras de Negócio ficarão funcionais!
+We can, then, switch from our Rest API to a GraphQL one, from our UI to another one, or even from Flutter itself to AngularDart. The business rules will keep working as before, as you won't need to change them not even a little.
 
+That said, let's present our proposal for a Flutterando Clean Architecture, namely, **Clean Dart**.
 Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutterando, a **“Clean Dart”**.
 
 
@@ -55,110 +54,105 @@ Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutte
 
 ![Image 1](imgs/img1.png)
 
-Usando o Flutter como exemplo teremos então quatro camadas mantendo a “Arquitetura de Plugin”, com foco principal no Domínio da Aplicação, camada esta que hospeda as 2 Regras de Negócio principais, estamos falando das **Entidades** e dos **Casos de Uso**.
+By using Flutter as an example, we have four layers, keeping the "plugin architecure", with the main focus on the Application Domain. In this layer inhabits the two main business rules, the **entities** and the **usecases**.
 
 ![Image 1](imgs/img2.png)
 
-A proposta de Arquitetura se propõe a desacoplar as camadas mais externas e preservar a Regra de Negócio.
-
+This architecture proposes to decoule the external layers and preserve the business rules.
 
 ## Presenter
 
-A Camada **Presenter** fica responsável por declarar as entradas, saídas e interações da aplicação. 
+The **Presenter** layer is responsible to declare the I/O and the interactions of the application.
 
-Usando o Flutter como exemplo, hospedaremos os Widgets, Pages e também Alguma Gerência de Estado, já no backend como exemplo, seria nesta camada onde colocaríamos os Handlers ou Commands da nossa API.
-
+If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.w
+If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.
 
 ## Domain
 
-A camada de **Domain** hospedará as Regras de Negócio Corporativa(Entity) e da Aplicação(Usecase).
+The **Domain** layer will contain our **core business rules** (entity) and **application-specific business rules** (usecases).
 
-Nossas Entidades devem ser Objetos simples podendo conter regras de validação dos seus dados por meio de funções ou ValueObjects. **A Entidade não deve usar nenhum Objeto das outras camadas.**
+Our **entities** must be simple objects, that may or not have validation rules for its data through functions or ValueObjects. **The entity must not depend on any object of the other layes.**
 
-Os **Casos de Uso** devem executar a lógica necessária para resolver o problema. Se o **Caso de Uso** precisar de algum acesso externo então esse acesso deve ser feito por meio de contratos de interface que serão implementados em uma camada de mais baixo nível.
+The **usecases** must run the neccessary logic to solve a specific problem. If the **usecase** needs the any external access, this access may be done through interface contacts that will be implemented by the lower-level layers.
 
-Na camada **Domain** dever ser responsável apenas pela execução da lógica de negócio, não deve haver implementações de outros Objetos como Repositories ou Services dentro do **Domain**. 
+The **Domain** must be responsible only for the execution of the business rules. It must not have any other object implementations, like repositories or services.
 
-Tomando um Repository como exemplo, teremos que ter apenas o contrato de interfaces(Abstrações) e a responsabilidade de implementação desse objeto deverá ser repassado a outra camada mais baixa.
+Taking a repository as example, we will have only the interface contract to this repository. The implementation of this contract must be done by a lower-level layer.
 
+## Infrastructure (Infra)
 
-## Infrastructure(Infra)
+This layer supports the **Domain** layer by implementing its interfaces. To do this, it have to adapt the external data so that it fullfill the domain contracts.
 
-Está camada dá suporte a camada **Domain** implementando suas interfaces. Para isso, essa camada se propõem a adaptar os dados externos para que possa cumprir os contratos do domínio.
+This layer will, probably, have the implementation for some repository or service interface that can't depend on external data, like an API, or the access to some hardware, like a Bluetooth device.
 
-Muito provavelmente nessa camada iremos implementar alguma interface de um Repository ou Services que pode ou não depender de dados externos como uma API ou acesso a algum Hardware como por exemplo Bluetooth. 
+For the repository to be able to proccess and adapt the external data we must create contracts for these services, aiming to defer the implementation responsability to a lower-level layer in our architecture.
 
-Para que o Repository possa processar e adaptar os dados externos devemos criar contratos para esses serviços visando passar a responsabilidade de implementação para a camada mais baixa da nossa arquitetura.
+Our suggestion is to create **DataSource** obejct when we want to access external data, that is, for example, a BaaS like Firebase or a SQLite-based local cache. Another suggestion is to create **Driver** objects to interface the communication between your application and some device hardware.
 
-Como sugestão, iremos criar objetos de **DataSource** quando quisermos acessar um dado externo, uma BaaS como Firebase ou um Cache Local usando SQLite por exemplo.
-Outra sugestão seria criar objetos denominados **Drivers** para interfacear a comunicação com algum Hardware do dispositivo.
-
-Os acessos externos como Datasources e Drivers devem ser implementados por outra camada, ficando apenas os Contratos de Interface nesta camada de Infra.
-
+The external accesses like datasources and drivers must be implemented by another layer, leaving only the interface contracts in this layer.
 
 ## External
 
-Aqui começaremos a implementar os acessos externos e que dependem de um hardware, package ou acesso muito específico.
+Here we implement the external accesses that depends on a hardware, package or highly-specific access.
 
-Basicamente a camada External deve conter tudo aquilo que terá grandes chances de ser alterado sem que o programador possa intervir diretamente no projeto.
+Basically, the **External** layer must contain everything that is expected to be highly volatile and constantly changed.
 
-No Flutter por exemplo, para cache local usamos o SharedPreferences, mas talvez em alguma estágio do projeto a implementação do SharedPreferences não seja mais suficiente para a aplicação e deve ser substituída por outro package como Hive, nesse ponto a única coisa que precisamos fazer é criar uma nova classe, implementando o Contrato esperado pela camada mais alta (que seria a **Infra**) e implementarmos a Lógica usando o Hive.
+In Flutter, for instance, we use `shared_preferences` for local cache. However, it may be that, in a later stage of the project, `shared_preferences` won't be able to meet the requirements of our application and we will want to replace it with another package, like `hive`. When this happens, all we need to do is to implement, using the logic inherent to `hive`, a new instance of the contract that the infrastructure layer expects.
 
-Um outro exemplo prático seria pensar em um Login com Firebase Auth, porém outro produto deseja utilizar um outro provider de autenticação. Bastaria apenas implementar um datasource baseado no outro provider e “Inverter a Dependência” substituindo a implementação do Firebase pela nova quando for necessário.
+Another pragmatic example would be to think in a login system based on Firebase Auth. Another product, however, want to use other authentication providar. To make this substituition it would be as simple as implementing a datasource based on this new provider and "invert the dependency", using this implementation instead of the Firebase one's when need.
 
-Os Datasources devem se preocupar apenas em “descobrir” os dados externos e enviar para a camada de Infra para serem tratados.
+The **datasources** must only worry about discovering the external data and sending it to the infra layer, where they will be dealt.
 
-Da mesma forma os objetos **Drivers** devem apenas retornar as informações solicitadas sobre o Hardware do Device e não devem fazer tratamento fora ao que lhe foi solicitado no contrato.
+Likewise, the **drivers** objects must only provide the device hardware info that is required by the contract, and not deal with anything else.
 
-# Dicas
+# Tips
 
-## Pense por camada
+## Think on layers
 
-Quando for desenvolver comece a pensar por camada, não devemos nos preocupar com o que tem na camada de **Presenter** ou **External** por exemplo. Se pensarmos nas camadas mais externas podemos acabar nos orientando (erroneamente) por essas camadas. Assim, devemos nos acostumar a desenvolver camada por camada, de dentro para fora e não ao contrário.
+When you are about to start developing, start thinking about layers. We shouldn't worry with what the **Presenter** or **External** layers have, for example. If we start thinking by the external layers we may be eventually misguided by them. Thus, we should get used to develop each layer, from the most internal to the most external.
 
-Talvez no começo da sua jornada "Limpa" algumas camadas possam parecer "sem utilidade", isso acontece quando nossa mente ainda não está **Pensando em Camadas** (ou porque sua Regra de Negócio é simples demais para isso)
+It may be that, in the beggining of your "clean" journey, some of these layers may seem useless. This happens when our thinking is not yet based **on layers** (or, maybe, because your business rule is too much simple for this).
 
-## Teste de Unidade será sua nova UI
+## Unit Testing is your new UI
 
-É muito comum os desenvolvedores criarem primeiro as suas Views para pode "testar" as Regras de Negócio. Mas nós já temos uma ferramenta própria para isso e um lugar dedicado para armazenar esses testes.
+It's very common to developers to create your apps views before anything, so they help them to test their business rules. However, we already have a more proper tool for this, and a place specially designed for this kind of test.
 
-Desenvolver de forma "limpa" está em total sinergia com o **TDD**(Test Driven Development) pois a camada de **Presenter** será uma das últimas coisas que iremos pensar no desenvolvimento da nossa feature.
+Developing in a "clean" way is completely related with **TDD** (Test-Driven Development), as the **Presenter** layer is going to be one of the latest that we are going to think and develop.
 
-## Gaste mais tempo tratando erros
+## Spent your time dealing with possible errors
 
-**"É melhor deixar uma Exception acontecer do que tratar um erro de forma genérica"...**
-Uma boa dica é usar alguma classe que nos obrigue a tratar os erros como o **Either** do pacote **dartz**.
+**It's better to let a Exception be thrown than to handle it in a generic way...**
+A good tip is to use some handling-enforcing approach, like the `Either` class from `dartz` library.
 
-Either é uma classe que pode receber dois tipos de dados, um Left (para quando enviar o erro) e o Right(para enviar o dado esperado). Isso também diminui muito a necessidade de realizar um tratamento manual de erro com **try catch** em camadas mais superiores como **Presenter**.
+The `Either` class may receive two distinct data, a `Left` one, representing an error, and a `Right` one, representing the actual expected result. This reduces a lot the need to manually handle the exceptions with **try-catch**, which is error-prone, in higher layers.
 
-## Não caia na tentação de furar uma camada
+## Don't fall in the temptation of bypassing a layer
 
-Algumas vezes você poderá ter um **UseCase** muito simples, que apenas repassará para o **Repository**, como por exemplo em um CRUD onde você apenas precisa validar se a informação está chegando da maneira correta e repassar para o **Repository** fazer seu trabalho. 
+Sometimes you may have a very simple **usecase**, that will simply pass the data to the **repository**, like, for example, a CRUD where all you need to do is to validate if the data is being correctly received and yield it to the **repository** to do its work.
 
-Parece estranho você ter uma classe com um método que faz somente a validação dos dados e repassa para outra classe, porem você verá a grande utilidade disso no momento de uma manutenção. Pois muitas vezes o **UseCase** pode nascer pequeno mas em um futuro próximo ele pode ganhar corpo. 
+It may seem weird to have a class that have a single method which only function is to validade the data and send it to another class, but you are going to see that this will become quite useful when you are maintaining your project. It's not uncommon that your **usecase** borns small like this, but in the near future it grows bigger and more complex.
 
-Um exemplo disso é a utilização do Firebase, o package do Firebase te retornar uma Stream que você pode muito bem colocar ele direto na sua **View**, porem se um dia você quiser remover o firebase do seu projeto, você terá que reconstruir toda sua tela ou pior todo seu projeto.
+An example of this case is when you are using Firebase. The Firebase package only returns a Stream, and you could, as well, simply put it directly in your **view**. However, if someday you need to remove Firebase from your project and replace it with an alternative, you will have to remake your entire view, or even your entire project.
 
-Sendo assim não caia na tentação de chamar o **Repository** direto do **Controller** ou mesmo plugar o Firebase direto na sua **View**, além de infringir as regras da arquitetura, você irá se arrepender em um futuro próximo.
+That said, don't fall in the temptation of calling the **repository** directly from your **controller**, or to use Firebase directly in your **view**. You will be breaking your architecture laws and will eventually regret of your decision.
 
-# Assine!
+# Sign up!
 
-Apreciariamos o seu Feedback!
-Se concorda com a Proposta de Arquitetura Limpa "Clean Dart" faça isso deixando uma **Star** nesse repositório. Uma **Star** é o mesmo que assinar um "manifesto limpo" concordando com essa proposta.
+We would like to have your feedback!
 
-Estamos abertos a sugestões e melhorias na documentação!
-Faça isso por meio das [issues](https://github.com/Flutterando/Clean-Dart/issues), nossa equipe ficará muito contente com seu interesse em melhorar essa ferramenta para a comunidade.
+If you like your "Clean Dart" architecture proposal, leave a **star** in this repository. This is the same as signing a "clean manifest" agreeing with our proposal!
 
-Sinta-se a vontade para abrir um **PR** com correções na documentação dessa proposta.
+We are open to suggestions and improvements on this documentation!
+If you want to contribute, open an [issue](https://github.com/Flutterando/Clean-Dart/issues). Our team will be very happy with your interest in improving this tool for the community. Also, feel free to open a **pull request** with fixes to this proposal documentation.
 
-# Exemplos
+# Examples
 
 - [Clean Dart Login with Firebase, MobX and Modular](https://github.com/jacobaraujo7/login-firebase-clean-dart)
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 - [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
 - [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
 
-# Links úteis
+# Useful links
 
 - [Resumo do livro "Arquitetura Limpa"](https://medium.com/@deividchari/desvendando-a-arquitetura-limpa-de-uncle-bob-3e60d9aa9cce)
 - [Sua Arquitetura está limpa?](https://medium.com/flutterando/sua-arquitetura-est%C3%A1-limpa-clean-architecture-no-flutter-458c68fad120)
