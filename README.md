@@ -9,7 +9,7 @@ Podemos dizer que uma arquitetura limpa pode definir o futuro do seu projeto, sa
 Para essa proposta nos basearemos nas camadas da Arquitetura Limpa proposta por Robert C. Martin no livro **“Arquitetura Limpa: o Guia do Artesão Para Estrutura e Design de Software”**.
 
 
-# Camadas de uma Arquitetura Limpa.
+# Camadas de uma Arquitetura Limpa
 
 **Robert C. Martin** conclui que uma arquitetura deve conter pelo menos 4 camadas principais e independentes para ser considerada “limpa”, são elas: 
 1. Regras de Negócio Corporativas
@@ -81,7 +81,7 @@ Na camada **Domain** dever ser responsável apenas pela execução da lógica de
 Tomando um Repository como exemplo, teremos que ter apenas o contrato de interfaces(Abstrações) e a responsabilidade de implementação desse objeto deverá ser repassado a outra camada mais baixa.
 
 
-## Infrastructure(Infra)
+## Infrastructure (Infra)
 
 Está camada dá suporte a camada **Domain** implementando suas interfaces. Para isso, essa camada se propõem a adaptar os dados externos para que possa cumprir os contratos do domínio.
 
