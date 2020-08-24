@@ -29,7 +29,7 @@ An **entity** must be pure. This means that it cannot have any knowledge about t
 
 They are the rules that are exclusive and specific to your application. They are expressed in commands called **use cases**, which, roughly speaking, represents any action the user can perform within your application.
 
-An **use case** only knows the **enitites** layer, and know nothing about the lower layers.
+An **use case** only knows the **entities** layer, and know nothing about the lower layers.
 
 If an **use case** needs to access a higher layer, it should be done with the [**Dependency Inversion Principle**](https://en.wikipedia.org/wiki/Dependency_inversion_principle) in mind.
 
@@ -47,18 +47,17 @@ The frameworks & drivers layer is highly volatile, and is constantly changing. W
 We can, then, switch from our Rest API to a GraphQL one, from our UI to another one, or even from Flutter itself to AngularDart. The business rules will keep working as before, as you won't need to change them not even a little.
 
 That said, let's present our proposal for a Flutterando Clean Architecture, namely, **Clean Dart**.
-Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutterando, a **“Clean Dart”**.
 
 
 # Clean Dart
 
 ![Image 1](imgs/img1.png)
 
-By using Flutter as an example, we have four layers, keeping the "plugin architecure", with the main focus on the Application Domain. In this layer inhabits the two main business rules, the **entities** and the **usecases**.
+By using Flutter as an example, we have four layers, keeping the "plugin architecture", with the main focus on the Application Domain. In this layer inhabits the two main business rules, the **entities** and the **usecases**.
 
 ![Image 1](imgs/img2.png)
 
-This architecture proposes to decoule the external layers and preserve the business rules.
+This architecture proposes to dissociate the external layers and preserve the business rules.
 
 ## Presenter
 
@@ -71,9 +70,9 @@ If we take Flutter as an example, this layer would contain the Widgets, Pages an
 
 The **Domain** layer will contain our **core business rules** (entity) and **application-specific business rules** (usecases).
 
-Our **entities** must be simple objects, that may or not have validation rules for its data through functions or ValueObjects. **The entity must not depend on any object of the other layes.**
+Our **entities** must be simple objects, that may or not have validation rules for its data through functions or ValueObjects. **The entity must not depend on any object of the other layers.**
 
-The **usecases** must run the neccessary logic to solve a specific problem. If the **usecase** needs the any external access, this access may be done through interface contacts that will be implemented by the lower-level layers.
+The **usecases** must run the necessary logic to solve a specific problem. If the **usecase** needs the any external access, this access may be done through interface contacts that will be implemented by the lower-level layers.
 
 The **Domain** must be responsible only for the execution of the business rules. It must not have any other object implementations, like repositories or services.
 
@@ -85,11 +84,11 @@ This layer supports the **Domain** layer by implementing its interfaces. To do t
 
 This layer will, probably, have the implementation for some repository or service interface that can't depend on external data, like an API, or the access to some hardware, like a Bluetooth device.
 
-For the repository to be able to proccess and adapt the external data we must create contracts for these services, aiming to defer the implementation responsability to a lower-level layer in our architecture.
+For the repository to be able to process and adapt the external data we must create contracts for these services, aiming to defer the implementation responsibility to a lower-level layer in our architecture.
 
-Our suggestion is to create **DataSource** obejct when we want to access external data, that is, for example, a BaaS like Firebase or a SQLite-based local cache. Another suggestion is to create **Driver** objects to interface the communication between your application and some device hardware.
+Our suggestion is to create **DataSource** object when we want to access external data, that is, for example, a BaaS like Firebase or a SQLite-based local cache. Another suggestion is to create **Driver** objects to interface the communication between your application and some device hardware.
 
-The external accesses like datasources and drivers must be implemented by another layer, leaving only the interface contracts in this layer.
+The external accesses like data sources and drivers must be implemented by another layer, leaving only the interface contracts in this layer.
 
 ## External
 
@@ -99,9 +98,9 @@ Basically, the **External** layer must contain everything that is expected to be
 
 In Flutter, for instance, we use `shared_preferences` for local cache. However, it may be that, in a later stage of the project, `shared_preferences` won't be able to meet the requirements of our application and we will want to replace it with another package, like `hive`. When this happens, all we need to do is to implement, using the logic inherent to `hive`, a new instance of the contract that the infrastructure layer expects.
 
-Another pragmatic example would be to think in a login system based on Firebase Auth. Another product, however, want to use other authentication providar. To make this substituition it would be as simple as implementing a datasource based on this new provider and "invert the dependency", using this implementation instead of the Firebase one's when need.
+Another pragmatic example would be to think in a login system based on Firebase Auth. Another product, however, want to use other authentication provider. To make this substitution it would be as simple as implementing a data source based on this new provider and "invert the dependency", using this implementation instead of the Firebase one's when need.
 
-The **datasources** must only worry about discovering the external data and sending it to the infra layer, where they will be dealt.
+The **data sources** must only worry about discovering the external data and sending it to the infra layer, where they will be dealt.
 
 Likewise, the **drivers** objects must only provide the device hardware info that is required by the contract, and not deal with anything else.
 
@@ -111,7 +110,7 @@ Likewise, the **drivers** objects must only provide the device hardware info tha
 
 When you are about to start developing, start thinking about layers. We shouldn't worry with what the **Presenter** or **External** layers have, for example. If we start thinking by the external layers we may be eventually misguided by them. Thus, we should get used to develop each layer, from the most internal to the most external.
 
-It may be that, in the beggining of your "clean" journey, some of these layers may seem useless. This happens when our thinking is not yet based **on layers** (or, maybe, because your business rule is too much simple for this).
+It may be that, in the beginning of your "clean" journey, some of these layers may seem useless. This happens when our thinking is not yet based **on layers** (or, maybe, because your business rule is too much simple for this).
 
 ## Unit Testing is your new UI
 
@@ -130,7 +129,7 @@ The `Either` class may receive two distinct data, a `Left` one, representing an 
 
 Sometimes you may have a very simple **usecase**, that will simply pass the data to the **repository**, like, for example, a CRUD where all you need to do is to validate if the data is being correctly received and yield it to the **repository** to do its work.
 
-It may seem weird to have a class that have a single method which only function is to validade the data and send it to another class, but you are going to see that this will become quite useful when you are maintaining your project. It's not uncommon that your **usecase** borns small like this, but in the near future it grows bigger and more complex.
+It may seem weird to have a class that have a single method which only function is to validate the data and send it to another class, but you are going to see that this will become quite useful when you are maintaining your project. It's not uncommon that your **usecase** borns small like this, but in the near future it grows bigger and more complex.
 
 An example of this case is when you are using Firebase. The Firebase package only returns a Stream, and you could, as well, simply put it directly in your **view**. However, if someday you need to remove Firebase from your project and replace it with an alternative, you will have to remake your entire view, or even your entire project.
 
