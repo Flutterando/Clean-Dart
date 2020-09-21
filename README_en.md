@@ -63,7 +63,6 @@ This architecture proposes to dissociate the external layers and preserve the bu
 
 The **Presenter** layer is responsible to declare the I/O and the interactions of the application.
 
-If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.w
 If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.
 
 ## Domain
