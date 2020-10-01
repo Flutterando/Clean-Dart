@@ -3,9 +3,9 @@ Clean architecture proposal for Dart/Flutter.
 
 # Introduction
 
-The architecture of your project may define it's future. Being so, it's our role to study constantly to know how to design a proper, clean architecture, and where to apply it.
+We can say that a clean architecture might define the future of your project. Knowing that, it's our role to study constantly in order to know where, when and how to apply it.
 
-This proposal is based on Robert C. Martin's **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”** principles and it's layers struct approach.
+This proposal is based on Robert C. Martin's **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”** principles and it's layers structure approach.
 
 # Clean Architecture layers
 
@@ -21,13 +21,13 @@ This proposal is based on Robert C. Martin's **“Clean Architecture: A Craftsma
 
 ## Enterprise Business Rules
 
-They are the most sensitive rules of a system and, thus, the highest-level layer. It is represented by data models called **entities**. 
+They are the most sensitive rules of a system and, thus, the highest-level layer. They are represented by data models called **entities**. 
 
 An **entity** must be pure. This means that it cannot have any knowledge about the layers below it. On the other hand, all other layers know about the **entities**.
 
 ## Application Business Rules
 
-They are the rules that are exclusive and specific to your application. They are expressed in commands called **use cases**, which, roughly speaking, represents any action the user can perform within your application.
+They are the rules that are exclusive and specific to your application and can only be executed by the target device. They are expressed in commands called **use cases**, which, roughly speaking, represents any action the user can perform within your application.
 
 An **use case** only knows the **entities** layer, and know nothing about the lower layers.
 
@@ -63,7 +63,6 @@ This architecture proposes to dissociate the external layers and preserve the bu
 
 The **Presenter** layer is responsible to declare the I/O and the interactions of the application.
 
-If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.w
 If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.
 
 ## Domain
