@@ -119,7 +119,7 @@ Talvez no começo da sua jornada "Limpa" algumas camadas possam parecer "sem uti
 
 ## Teste de Unidade será sua nova UI
 
-É muito comum os desenvolvedores criarem primeiro as suas Views para pode "testar" as Regras de Negócio. Mas nós já temos uma ferramenta própria para isso e um lugar dedicado para armazenar esses testes.
+É muito comum os desenvolvedores criarem primeiro as suas Views para poder "testar" as Regras de Negócio. Mas nós já temos uma ferramenta própria para isso e um lugar dedicado para armazenar esses testes.
 
 Desenvolver de forma "limpa" está em total sinergia com o **TDD**(Test Driven Development) pois a camada de **Presenter** será uma das últimas coisas que iremos pensar no desenvolvimento da nossa feature.
 
