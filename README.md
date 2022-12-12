@@ -156,6 +156,7 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 - [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
 - [Clean Dart Github Search with Flutter Command](https://github.com/aquilarafa/clean_dart_flutter_command)
+- [Clean Dart Github - Path dependency with State Managers approaches](https://github.com/whosramoss/clean-dart-github)
 - [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
 - [Movie App With MicroApps, Modular and Flutter_Triple](https://github.com/Bwolfs2/coffsy_movie_app)
 
