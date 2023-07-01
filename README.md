@@ -3,8 +3,8 @@ Proposta de Arquitetura Limpa para o Dart/Flutter
 
 ## Proposta antiga do Clean Dart 1.0
 
-[pt-BR](1.0/README.md)
-[en-US](1.0/README_en.md)
+- [pt-BR](1.0/README.md)
+- [en-US](1.0/README_en.md)
 
 
 # Início
@@ -57,25 +57,26 @@ Dado as descrições iremos apresentar a proposta de Arquitetura Limpa da Flutte
 
 # Clean Dart
 
-![Image 1](imgs/img1.png)
+![Image 1](imgs/image1.png)
 
-Usando o Flutter como exemplo teremos então quatro camadas mantendo a “Arquitetura de Plugin”, com foco principal no Domínio da Aplicação, camada esta que hospeda as 2 Regras de Negócio principais, estamos falando das **Entidades** e dos **Casos de Uso**.
+Usando o Flutter como exemplo teremos então três camadas mantendo a “Arquitetura de Plugin”, com foco principal no Estado da Aplicação, camada esta que hospeda os eventos/ações para mudança de estado.
 
-![Image 1](imgs/img2.png)
 
 A proposta de Arquitetura se propõe a desacoplar as camadas mais externas e preservar a Regra de Negócio.
 
 
-## Presenter
+## UI
 
-A Camada **Presenter** fica responsável por declarar as entradas, saídas e interações da aplicação. 
+A Camada **UI** fica responsável por declarar as entradas, saídas e interações da aplicação. 
 
-Usando o Flutter como exemplo, hospedaremos os Widgets, Pages e também Alguma Gerência de Estado, já no backend como exemplo, seria nesta camada onde colocaríamos os Handlers ou Commands da nossa API.
+Usando o Flutter como exemplo, hospedaremos os Widgets e Pages, já no backend como exemplo, seria nesta camada onde colocaríamos os Handlers ou Commands da nossa API.
 
 
-## Domain
+## INTERACTOR
 
-A camada de **Domain** hospedará as Regras de Negócio Corporativa(Entity) e da Aplicação(Usecase).
+A camada de **Interactor** hospedará as Regras de Negócio da aplicação junto aos seus estados.
+
+O núcleo da camada será a elaboração do estado
 
 Nossas Entidades devem ser objetos simples podendo conter regras de validação dos seus dados por meio de funções ou ValueObjects. **A Entidade não deve usar nenhum objeto das outras camadas.**
 
