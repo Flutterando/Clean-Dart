@@ -1,10 +1,5 @@
-# Clean Dart 2.0
+# Clean Dart
 Proposta de Arquitetura Limpa para o Dart/Flutter
-
-## Proposta antiga do Clean Dart 1.0
-
-[pt-BR](1.0/README.md)
-[en-US](1.0/README_en.md)
 
 
 # Início
