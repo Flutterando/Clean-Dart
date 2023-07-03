@@ -71,11 +71,6 @@ Usando o Flutter como exemplo, hospedaremos os Widgets e Pages, já no backend c
 A camada de **Interactor** hospedará as Regras de Negócio da aplicação junto aos seus estados.
 O núcleo da camada será a elaboração do estado e a prograpação por de alguma abordagem de gerenciamento de estado.
 
-
-Nossas Entidades devem ser objetos simples podendo conter regras de validação dos seus dados por meio de funções ou ValueObjects. **A Entidade não deve usar nenhum objeto das outras camadas.**
-
-A camada **Interactor** deve ser responsável apenas pela execução da lógica de negócio reduzida em estados, não deve haver implementações de outros objetos como Repositories ou Services dentro do **Interactor**. 
-
 Tomando um Repository como exemplo, teremos que ter apenas o contrato de interfaces(Abstrações) e a responsabilidade de implementação desse objeto deverá ser repassado a outra camada mais baixa.
 
 
