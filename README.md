@@ -136,13 +136,10 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 
 # Exemplos
 
-- [Clean Dart Login with Firebase, MobX and Modular](https://github.com/jacobaraujo7/login-firebase-clean-dart)
+- [Clean Dart Burgers Cart using BLoC, Cubit, Triple, Asp, MobX, etc](https://github.com/jacobaraujo7/bloc_atom)
+- Clean Dart Login with Firebase, MobX and Modular
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 - [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
-- [Clean Dart Github Search with Flutter Command](https://github.com/aquilarafa/clean_dart_flutter_command)
-- [Clean Dart Github - Path dependency with State Managers approaches](https://github.com/whosramoss/clean-dart-github)
-- [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
-- [Movie App With MicroApps, Modular and Flutter_Triple](https://github.com/Bwolfs2/coffsy_movie_app)
 
 # Links úteis
 
@@ -150,5 +147,4 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 - [Sua Arquitetura está limpa?](https://medium.com/flutterando/sua-arquitetura-est%C3%A1-limpa-clean-architecture-no-flutter-458c68fad120)
 - [Os tijolos do Clean Architecture](https://www.youtube.com/watch?v=C8mpy3pwqQc)
 - [The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-- [Guilherme's Proposal](https://github.com/guilherme-v/flutter-clean-arch)
-- [Flutter TDD Clean Architecture Course](https://www.youtube.com/watch?v=KjE2IDphA_U&list=PLB6lc7nQ1n4iYGE_khpXRdJkJEp9WOech)
+
