@@ -149,7 +149,8 @@ If you want to contribute, open an [issue](https://github.com/Flutterando/Clean-
 - [Clean Dart Github Search with BLoC and Modular](https://github.com/Flutterando/clean-dart-search-bloc)
 - [Clean Dart Github Search with MobX and Modular](https://github.com/jacobaraujo7/clean-dart-search-mobx)
 - [Clean Dart Github Search with Flutter Command](https://github.com/aquilarafa/clean_dart_flutter_command)
-- [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
+- [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket)
+- [Clean Dart Pokedex with BLoC and Modular](https://github.com/umpedetiago/pokedex_with_cleandart.git) 
 
 # Useful links
 
