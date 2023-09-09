@@ -159,6 +159,7 @@ Sinta-se a vontade para abrir um **PR** com correções na documentação dessa 
 - [Clean Dart Github - Path dependency with State Managers approaches](https://github.com/whosramoss/clean-dart-github)
 - [Chat WebSocket with Get_It and Cubit](https://github.com/rodrigorahman/flutter_curso_chat_websocket) 
 - [Movie App With MicroApps, Modular and Flutter_Triple](https://github.com/Bwolfs2/coffsy_movie_app)
+- [Clean Dart Pokedex with BLoC and Modular](https://github.com/umpedetiago/pokedex_with_cleandart.git) 
 
 # Links úteis
 
