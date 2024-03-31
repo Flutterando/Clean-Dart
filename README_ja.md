@@ -9,12 +9,12 @@ Dart/Flutter向けのクリーンアーキテクチャ提案
 
 # Clean Architecture layers
 
-**Robert C. Martin** states that, to be considered "clean", an architecture must have at least 4 main and independent layers. They are:
+**Robert C. Martin**は、アーキテクチャが「クリーン」であるためには、少なくとも4つの主要かつ独立したレイヤーを持っている必要があると述べています。それらは次のとおりです。
 
-1. Enterprise Business Rules
-2. Application Business Rules
-3. Interface Adapters
-4. Frameworks & Drivers (External)
+1. Enterprise Business Rules : 企業の就業規則
+2. Application Business Rules : コンピュータ上のプログラムの就業規則
+3. Interface Adapters : 異なるレイヤーをつなげる適合器
+4. Frameworks & Drivers (External) : プログラムの枠組みとOSとDevice間のソフトウェア（外部）
 
 ![Image 3](imgs/img3.png)
 
