@@ -124,13 +124,13 @@ Flutterにおいて、例えば、ローカルキャッシュには `shared_pref
 
 ## Don't fall in the temptation of bypassing a layer
 
-Sometimes you may have a very simple **usecase**, that will simply pass the data to the **repository**, like, for example, a CRUD where all you need to do is to validate if the data is being correctly received and yield it to the **repository** to do its work.
+時々、とてもシンプルな **ユースケース** があるかもしれません。例えば、これはデータが正しく受信されていることを確認し、CRUD処理を行うためにデータを **リポジトリ** に渡すだけのものです。
 
-It may seem weird to have a class that have a single method which only function is to validate the data and send it to another class, but you are going to see that this will become quite useful when you are maintaining your project. It's not uncommon that your **usecase** borns small like this, but in the near future it grows bigger and more complex.
+データを検証して、別のクラスに送信するだけのメソッドを持つクラスがあることは、奇妙に思えるかもしれませんが、プロジェクトを保守する際に非常に便利であることがわかります。あなたの **ユースケース** がこのように小さく生まれることは珍しくありませんが、近い将来にはより大きく、より複雑になります。
 
-An example of this case is when you are using Firebase. The Firebase package only returns a Stream, and you could, as well, simply put it directly in your **view**. However, if someday you need to remove Firebase from your project and replace it with an alternative, you will have to remake your entire view, or even your entire project.
+この場合の一つの例としては、Firebaseを使う時です。Firebaseパッケージは単にStreamを返すだけで、あなたは同様にそれを直接あなたの **ビュー** に置くことができます。しかし、いつかFirebaseをプロジェクトから削除して代替手段に置き換える必要がある場合、ビュー全体を作り直すか、プロジェクト全体を作り直す必要があるかもしれません。
 
-That said, don't fall in the temptation of calling the **repository** directly from your **controller**, or to use Firebase directly in your **view**. You will be breaking your architecture laws and will eventually regret of your decision.
+つまり、あなたの **コントローラ** から直接 **リポジトリ** を呼び出すこと、またはFirebaseを直接 **ビュー** で使用することに誘惑されないでください。あなたはあなたのアーキテクチャの法則を破り、最終的にはあなたの決定を後悔することになります。
 
 # Sign up!
 
