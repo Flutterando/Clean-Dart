@@ -117,10 +117,10 @@ Flutterにおいて、例えば、ローカルキャッシュには `shared_pref
 
 ## Spent your time dealing with possible errors
 
-**It's better to let a Exception be thrown than to handle it in a generic way...**
-A good tip is to use some handling-enforcing approach, like the `Either` class from `dartz` library.
+**一般的に例外を処理するよりも例外をスローさせる方が良いです...**
+良いアプローチは、`dartz` ライブラリの `Either` クラスのようなハンドリング強制アプローチを使用することです。
 
-The `Either` class may receive two distinct data, a `Left` one, representing an error, and a `Right` one, representing the actual expected result. This reduces a lot the need to manually handle the exceptions with **try-catch**, which is error-prone, in higher layers.
+`Either` クラスは、2つの異なるデータを受け取ることができます。`Left` はエラーを表し、`Right` は実際の期待される結果を表します。これにより、例外を手動で **try-catch** で処理する必要がなくなり、エラーが発生しやすい上位レイヤーでの処理が減ります。
 
 ## Don't fall in the temptation of bypassing a layer
 
