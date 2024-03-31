@@ -105,9 +105,9 @@ Flutterにおいて、例えば、ローカルキャッシュには `shared_pref
 
 ## Think on layers
 
-When you are about to start developing, start thinking about layers. We shouldn't worry with what the **Presenter** or **External** layers have, for example. If we start thinking by the external layers we may be eventually misguided by them. Thus, we should get used to develop each layer, from the most internal to the most external.
+開発を始める時、レイヤーについて考えることから始めましょう。例えば、**プレゼンター** や **外部** レイヤーについては心配しないでください。もし外部レイヤーから考え始めると、最終的にはそれに誤解されるかもしれません。したがって、最も内部から最も外部まで、各レイヤーを開発することに慣れるべきです。
 
-It may be that, in the beginning of your "clean" journey, some of these layers may seem useless. This happens when our thinking is not yet based **on layers** (or, maybe, because your business rule is too much simple for this).
+あなたの "クリーン" な旅の最初には、これらのレイヤーのいくつかが無駄に見えるかもしれません。これは、私たちの考え方がまだ **レイヤー** に基づいていない場合に起こります (または、おそらく、あなたのビジネスルールがこれに対してあまりにも単純すぎるためかもしれません)。
 
 ## Unit Testing is your new UI
 
