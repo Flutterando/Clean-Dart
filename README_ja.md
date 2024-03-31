@@ -77,15 +77,15 @@ Flutterを例にとって、4つのレイヤーがあり、メインのフォー
 
 ## Infrastructure (Infra)
 
-This layer supports the **Domain** layer by implementing its interfaces. To do this, it have to adapt the external data so that it fullfill the domain contracts.
+このレイヤーは、インターフェースを実装することで **ドメイン** レイヤーをサポートします。これを行うために、外部データを適応させ、ドメインの契約を満たす必要があります。
 
-This layer will, probably, have the implementation for some repository or service interface that can't depend on external data, like an API, or the access to some hardware, like a Bluetooth device.
+このレイヤーには、おそらく、APIなどの外部データに依存できないリポジトリやサービスインターフェースの実装や、Bluetoothデバイスなどのハードウェアへのアクセスが含まれます。
 
-For the repository to be able to process and adapt the external data we must create contracts for these services, aiming to defer the implementation responsibility to a lower-level layer in our architecture.
+リポジトリが外部データを処理し適応できるようにするために、これらのサービスのための契約を作成する必要があります。これは、我々のアーキテクチャの下位レイヤーに実装責任を遅延させることを目的としています。
 
-Our suggestion is to create **DataSource** object when we want to access external data, that is, for example, a BaaS like Firebase or a SQLite-based local cache. Another suggestion is to create **Driver** objects to interface the communication between your application and some device hardware.
+私たちの提案は、外部データにアクセスするために **DataSource** オブジェクトを作成することです。例えば、FirebaseのようなBaaSや、SQLiteベースのローカルキャッシュです。また、アプリケーションとデバイスハードウェアの間の通信をインターフェースするために **Driver** オブジェクトを作成することも提案しています。
 
-The external accesses like data sources and drivers must be implemented by another layer, leaving only the interface contracts in this layer.
+データソースとドライバーのような外部アクセスは、別のレイヤーによって実装されなければならず、このレイヤーにはインターフェース契約のみが残ります。
 
 ## External
 
