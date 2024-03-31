@@ -19,11 +19,11 @@ Dart/Flutter向けのクリーンアーキテクチャ提案
 ![Image 3](imgs/img3.png)
 
 
-## Enterprise Business Rules
+## Enterprise Business Rules : 企業の就業規則
 
-They are the most sensitive rules of a system and, thus, the highest-level layer. They are represented by data models called **entities**. 
+これは、システムの最も感度が高く、最も高いレベルのレイヤーです。これらは、**エンティティ**と呼ばれるデータモデルによって表されます。
 
-An **entity** must be pure. This means that it cannot have any knowledge about the layers below it. On the other hand, all other layers know about the **entities**.
+エンティティは、純粋でなければなりません。これは、それが下のレイヤーについての知識を持っていないことを意味します。一方、他のすべてのレイヤーは、**エンティティ**について知っています。
 
 ## Application Business Rules
 
