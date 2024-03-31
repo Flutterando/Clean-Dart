@@ -111,9 +111,9 @@ Flutterにおいて、例えば、ローカルキャッシュには `shared_pref
 
 ## Unit Testing is your new UI
 
-It's very common to developers to create your apps views before anything, so they help them to test their business rules. However, we already have a more proper tool for this, and a place specially designed for this kind of test.
+なにを始める前にも、アプリケーションのビューを作成することは、開発者にとって非常に一般的で、ビジネスルールをテストするのに役立ちます。しかし、これに対してより適切なツールがすでに存在し、特にこの種のテストに特化した場所があります。
 
-Developing in a "clean" way is completely related with **TDD** (Test-Driven Development), as the **Presenter** layer is going to be one of the latest that we are going to think and develop.
+"クリーン" な方法で開発することは、**TDD** (テスト駆動開発) と完全に関連しており、**プレゼンター** レイヤーは、最後に考えて開発するものの1つになります。
 
 ## Spent your time dealing with possible errors
 
