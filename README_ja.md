@@ -35,10 +35,9 @@ If an **use case** needs to access a higher layer, it should be done with the [*
 
 もし **ユースケース** が上位レイヤーにアクセスする必要がある場合、それは [**依存性逆転の原則**](https://ja.wikipedia.org/wiki/%E4%BE%9D%E5%AD%98%E6%80%A7%E9%80%86%E8%BB%A2%E3%81%AE%E5%8E%9F%E5%89%87) を考慮して行われるべきです。
 
-## Interface Adapters
+## Interface Adapters : 異なるレイヤーをつなげる適合器
 
-This layer is responsible for acting as a bridge between the higher layers and the external data. It helps the external data to communicate with the higher layers in a way that respects the interface contracts defined in the business rules.
-
+このレイヤーは、上位レイヤーと外部データの間の橋渡しとしての役割を果たします。これは、ビジネスルールで定義されたインターフェース契約を尊重する方法で、外部データが上位レイヤーと通信するのを助けます。
 
 ## Frameworks & Drivers
 
