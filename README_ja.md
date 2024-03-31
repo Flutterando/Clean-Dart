@@ -1,5 +1,5 @@
 # Clean Dart
-Clean architecture proposal for Dart/Flutter.
+Dart/Flutter向けのクリーンアーキテクチャ提案
 
 # Introduction
 
