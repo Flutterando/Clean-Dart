@@ -89,17 +89,17 @@ Flutterを例にとって、4つのレイヤーがあり、メインのフォー
 
 ## External
 
-Here we implement the external accesses that depends on a hardware, package or highly-specific access.
+ここでは、ハードウェア、パッケージ、または高度に特定のアクセスに依存する外部アクセスを実装します。
 
-Basically, the **External** layer must contain everything that is expected to be highly volatile and constantly changed.
+基本的に、**External** レイヤーには、非常に揮発性が高く、常に変化することが期待されるすべてが含まれます。
 
-In Flutter, for instance, we use `shared_preferences` for local cache. However, it may be that, in a later stage of the project, `shared_preferences` won't be able to meet the requirements of our application and we will want to replace it with another package, like `hive`. When this happens, all we need to do is to implement, using the logic inherent to `hive`, a new instance of the contract that the infrastructure layer expects.
+Flutterにおいて、例えば、ローカルキャッシュには `shared_preferences` を使用します。しかし、プロジェクトの後半になると、`shared_preferences` がアプリケーションの要件を満たすことができなくなり、`hive` のような別のパッケージに置き換えたいと思うかもしれません。この場合、必要なのは、`hive` 固有のロジックを使用して、インフラストラクチャレイヤーが期待する契約の新しいインスタンスを実装するだけです。
 
-Another pragmatic example would be to think in a login system based on Firebase Auth. Another product, however, want to use other authentication provider. To make this substitution it would be as simple as implementing a data source based on this new provider and "invert the dependency", using this implementation instead of the Firebase one's when need.
+他の実用的な例は、Firebase Auth を元としたログインシステムを考える時です。しかしながら、他の認証プロバイダを使用したいと思う別の製品があります。この置換を行うためには、新しいプロバイダに基づいたデータソースを実装し、必要に応じてこの実装を使用するだけです。この代用を行うには、この新しいプロバイダに基づいたデータソースの実装をし、必要な時にFirebaseのものの代わりにこの実装を使用する「依存関係の反転」を行うだけで良くなります。
 
-The **data sources** must only worry about discovering the external data and sending it to the infra layer, where they will be dealt.
+**データソース** は、外部データを発見し、それをインフラレイヤーに送信することだけに気を配らなければなりません。
 
-Likewise, the **drivers** objects must only provide the device hardware info that is required by the contract, and not deal with anything else.
+これと同様に、**ドライバー** オブジェクトは、契約で必要とされるデバイスハードウェア情報のみを提供し、それ以外のことには関与してはいけません。
 
 # Tips
 
