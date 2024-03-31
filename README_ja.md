@@ -59,9 +59,9 @@ Flutterを例にとって、4つのレイヤーがあり、メインのフォー
 
 ## Presenter
 
-The **Presenter** layer is responsible to declare the I/O and the interactions of the application.
+**プレゼンター** レイヤーは、アプリケーションのI/Oと相互作用を宣言する責任があります。
 
-If we take Flutter as an example, this layer would contain the Widgets, Pages and the State Management. On the other hand, if we were dealing with the backend, this layer would be where we would have the Handlers or Commands of our API.
+もし、Flutterを例にとると、このレイヤーには、ウィジェット、ページ、およびステート管理が含まれます。一方、バックエンドを扱う場合、このレイヤーはAPIのハンドラーやコマンドが存在する場所になります。
 
 ## Domain
 
