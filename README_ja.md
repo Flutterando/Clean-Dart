@@ -51,11 +51,11 @@ Rest APIからGraphQL APIに、UIから別のUIに、FlutterからAngularDartに
 
 ![Image 1](imgs/img1.png)
 
-By using Flutter as an example, we have four layers, keeping the "plugin architecture", with the main focus on the Application Domain. In this layer inhabits the two main business rules, the **entities** and the **usecases**.
+Flutterを例にとって、4つのレイヤーがあり、メインのフォーカスはアプリケーションドメインにあります。このレイヤーには、2つの主要なビジネスルール、**エンティティ** と **ユースケース** が存在します。
 
 ![Image 1](imgs/img2.png)
 
-This architecture proposes to dissociate the external layers and preserve the business rules.
+このアーキテクチャは、外部レイヤーを分離し、ビジネスルールを保持することを提案しています。
 
 ## Presenter
 
