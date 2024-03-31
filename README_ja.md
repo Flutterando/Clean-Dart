@@ -3,9 +3,9 @@ Dart/Flutter向けのクリーンアーキテクチャ提案
 
 # Introduction
 
-We can say that a clean architecture might define the future of your project. Knowing that, it's our role to study constantly in order to know where, when and how to apply it.
+クリーンアーキテクチャは、プロジェクトの未来を定義すると言えます。そのため、私たちの役割は、それをどこに、いつ、どのように適用するかを知るために、常に勉強することです。
 
-This proposal is based on Robert C. Martin's **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”** principles and it's layers structure approach.
+この提案は、Robert C. Martinの **“Clean Architecture: A Craftsman's Guide to Software Structure and Design”** の原則と、そのレイヤー構造アプローチに基づいています。
 
 # Clean Architecture layers
 
