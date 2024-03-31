@@ -134,12 +134,15 @@ Flutterにおいて、例えば、ローカルキャッシュには `shared_pref
 
 # Sign up!
 
-We would like to have your feedback!
+私たちはあなたのフィードバックを待っています！
 
-If you like your "Clean Dart" architecture proposal, leave a **star** in this repository. This is the same as signing a "clean manifest" agreeing with our proposal!
+もし、あなたがこの提案に賛成であるなら、このリポジトリに **スター** をつけてください。これは、私たちの提案に同意する「クリーンマニフェスト」に署名することと同じです！
 
 We are open to suggestions and improvements on this documentation!
 If you want to contribute, open an [issue](https://github.com/Flutterando/Clean-Dart/issues). Our team will be very happy with your interest in improving this tool for the community. Also, feel free to open a **pull request** with fixes to this proposal documentation.
+
+私たちはこのドキュメントに関する提案と改善を受け付けています！
+もし、貢献したいと思ったら、[issue](https://github.com/Flutterando/Clean-Dart/issues)を開いてください。私たちのチームは、コミュニティのためにこのツールを改善するためのあなたの関心に非常に喜びます。また、この提案のドキュメントを修正するための **プルリクエスト** を自由に開いてください。
 
 # Examples
 
