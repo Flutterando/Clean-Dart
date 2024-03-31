@@ -39,16 +39,15 @@ If an **use case** needs to access a higher layer, it should be done with the [*
 
 このレイヤーは、上位レイヤーと外部データの間の橋渡しとしての役割を果たします。これは、ビジネスルールで定義されたインターフェース契約を尊重する方法で、外部データが上位レイヤーと通信するのを助けます。
 
-## Frameworks & Drivers
+## Frameworks & Drivers (External) : プログラムの枠組みとOSとDevice間のソフトウェア（外部）
 
-All the higher-level layers abstractions were designed specially top improve the decoupling between them and the external artifacts. This makes easier to switch them whenever you want, in a plug & play fashion.
+全ての上位レイヤーの抽象化は、それらと外部アーティファクトとの間の結合を改善するために特に設計されました。これにより、プラグ＆プレイのスタイルでいつでもそれらを切り替えることが容易になります。
 
-The frameworks & drivers layer is highly volatile, and is constantly changing. Within a clean architecture, however, these changes may be completely painless and safe, leaving your business rules untouched.
+このレイヤーは非常に揮発性が高く、常に変化しています。しかし、クリーンアーキテクチャの中では、これらの変更は完全に痛みなく安全に行うことができ、ビジネスルールは変更されません。
 
-We can, then, switch from our Rest API to a GraphQL one, from our UI to another one, or even from Flutter itself to AngularDart. The business rules will keep working as before, as you won't need to change them not even a little.
+Rest APIからGraphQL APIに、UIから別のUIに、FlutterからAngularDartに切り替えることができます。ビジネスルールは以前と同じように機能し続け、それらを変更する必要はありません。
 
-That said, let's present our proposal for a Flutterando Clean Architecture, namely, **Clean Dart**.
-
+そうは言っても、具体例がないと理解が難しいかもしれません。そこで、Flutterando Clean Architecture、つまり **Clean Dart** の提案をご紹介します。
 
 # Clean Dart
 
