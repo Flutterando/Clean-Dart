@@ -65,15 +65,15 @@ Flutterを例にとって、4つのレイヤーがあり、メインのフォー
 
 ## Domain
 
-The **Domain** layer will contain our **core business rules** (entity) and **application-specific business rules** (usecases).
+**ドメイン** レイヤーは、**エンティティ** と **ユースケース** を含む **ビジネスルール** を持っています。
 
-Our **entities** must be simple objects, that may or not have validation rules for its data through functions or ValueObjects. **The entity must not depend on any object of the other layers.**
+**エンティティ** は、データの検証ルールや関数、または `ValueObjects` を通じてデータの検証ルールを持つかもしれませんが、シンプルなオブジェクトである必要があります。**エンティティは、他のレイヤーのオブジェクトに依存してはいけません。**
 
-The **usecases** must run the necessary logic to solve a specific problem. If the **usecase** needs the any external access, this access may be done through interface contacts that will be implemented by the lower-level layers.
+**ユースケース** は、特定の問題を解決するために必要なロジックを実行しなければなりません。もし **ユースケース** が外部アクセスを必要とする場合、このアクセスは、下位レイヤーによって実装されるインターフェースコンタクトを介して行われるかもしれません。
 
-The **Domain** must be responsible only for the execution of the business rules. It must not have any other object implementations, like repositories or services.
+**ドメイン** は、ビジネスルールの実行のみに責任を持たなければなりません。リポジトリやサービスのような他のオブジェクトの実装を持ってはいけません。
 
-Taking a repository as example, we will have only the interface contract to this repository. The implementation of this contract must be done by a lower-level layer.
+責任を持つ例として、リポジトリを取ると、このリポジトリにはインターフェース契約のみがあります。この契約の実装は、下位レイヤーによって行われなければなりません。
 
 ## Infrastructure (Infra)
 
