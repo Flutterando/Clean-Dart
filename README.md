@@ -90,6 +90,7 @@ Basicamente a camada **DATA** deve conter tudo aquilo que terá grandes chances 
 
 Obviamente podemos manter nossas camadas para a aplicação inteira mas podemos ter um melhor proveito criando as camadas Interactor, Data e UI para cada feature. Exemplo:
 
+```
 .
 └── src/
     └── features/
@@ -105,6 +106,7 @@ Obviamente podemos manter nossas camadas para a aplicação inteira mas podemos 
             ├── data
             ├── interactor
             └── ui
+```
 
 ## Pense por camada
 
